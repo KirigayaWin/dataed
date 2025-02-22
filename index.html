@@ -7,33 +7,38 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
-  <link rel="icon" href="icon.png" type="image/png"> <!-- Added tab icon -->
+  <link rel="icon" href="icon.png" type="image/png">
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
     .sticky-header {
       position: -webkit-sticky; 
       position: sticky;
       top: 0;
       z-index: 1000;
       background-color: rgb(58, 58, 58); 
-      padding: 5px; /* Reduced padding */
+      padding: 5px;
     }
     .front-page h1 {
-      margin-bottom: 5px; /* Reduced margin */
+      margin-bottom: 5px;
     }
     .front-page h2 {
       margin-top: 0;
-      margin-bottom: 5px; /* Reduced margin */
+      margin-bottom: 5px;
     }
     .front-page p {
       margin-top: 0;
-      margin-bottom: 5px; /* Reduced margin */
+      margin-bottom: 5px;
     }
     .carousel-box {
       position: relative;
       width: 80%;
       margin: auto;
       overflow: hidden;
-      height: 300px; 
+      height: 300px;
+      padding: 0;
     }
 
     .carousel-content {
@@ -44,7 +49,7 @@
     .carousel-item {
       min-width: 100%;
       box-sizing: border-box;
-      padding: 20px; 
+      padding: 20px;
     }
 
     .carousel-button {
@@ -54,27 +59,34 @@
       cursor: pointer;
       padding: 10px;
       font-size: 18px;
+      position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
     }
 
     .carousel-button.left {
-      left: 10px; 
+      left: 0;
     }
 
     .carousel-button.right {
-      right: 10px; 
+      right: 0;
     }
 
     .button-box {
-      text-align: right; 
-      margin-top: 10px; 
+      text-align: right;
+      margin-top: 10px;
     }
 
     @media (max-width: 600px) {
       .sticky-header {
-        font-size: 14px; 
-        padding: 5px; 
+        font-size: 14px;
+        padding: 5px;
       }
       .carousel-content {
         touch-action: pan-y;
@@ -95,11 +107,11 @@
     .start-button {
       display: inline-block;
       padding: 10px 20px;
-      margin-top: 100px; /* Moved higher */
+      margin-top: 100px;
       margin-bottom: 100px;
       font-size: 1em;
       color: white;
-      background-color: rgba(128, 128, 128, 0.7); /* Changed background color to 70% opacity grey */
+      background-color: rgba(128, 128, 128, 0.7);
       border: none;
       cursor: pointer;
       text-align: center;
@@ -112,79 +124,153 @@
 
     .summary-box {
       position: relative;
-      width: 80%; /* Same width as carousel and risk assessment */
+      width: 80%;
       margin: auto;
-      overflow: hidden;
-      height: 300px; /* Same height as carousel */
+      height: auto;
       padding: 20px;
-      background-color: rgba(51, 51, 51, 0.6); /* Changed background color to dark gray with 60% opacity */
-      color: white; /* Changed text color to white */
+      background-color: rgba(51, 51, 51, 0.6);
+      color: white;
       box-sizing: border-box;
-      border-radius: 10px; /* Added rounded edges */
+      border-radius: 10px;
     }
 
     .summary-box p {
-      font-size: 1.2em; /* Increased font size */
+      font-size: 1.2em;
+      padding-bottom: 20px;
     }
 
     .front-page h1 {
       font-size: 2em;
       text-align: left;
-      margin-left: 10px; /* Ensure alignment to the left */
+      margin-left: 10px;
     }
 
     .front-page h2 {
-      text-align: left; /* Ensure alignment to the left */
-      margin-left: 10px; /* Ensure alignment to the left */
+      text-align: left;
+      margin-left: 10px;
+    }
+
+    .header-left {
+      font-size: 1.5em;
+    }
+
+    .header-left, .header-center, .header-right {
+      font-weight: bold;
+    }
+
+    .header-right {
+      padding-right: 10px;
+    }
+
+    .how-it-works-box {
+      position: relative;
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      height: 500px;
+      padding: 20px;
+      background-color: rgba(51, 51, 51, 0.6);
+      color: white;
+      box-sizing: border-box;
+      border-radius: 10px;
+      overflow-y: auto;
+      font-size: 1.2em;
     }
   </style>
 </head>
 <body>
-  <div class="uh-header sticky-header" style="padding: 1px 0;"> <!-- Reduced padding -->
-    <div class="header-left" style="padding-left: 10px;">DataED</div> <!-- Added padding-left -->
-    <div class="header-center">Emmanuel Resurreccion Congressional Integrated High School</div>
+  <div class="uh-header sticky-header" style="padding: 1px 0;">
+    <div class="header-left" style="padding-left: 10px;">DataED</div>
+    <div class="header-center">ERCIHS</div>
     <div class="header-right">
       <a href="document.pdf" class="view-document">Download Document</a>
     </div>
   </div> 
 
-  <div class="front-page" style="text-align: left;"> <!-- Changed text-align to left -->
-    <div style="height: 30px;"></div> <!-- Reduced height -->
-    <h1>Welcome to DataED</h1> <!-- Made text bigger and aligned to the left -->
-    <h2 style="font-size: 1em; margin-top: 0px;">Analyze the risks of sharing your personal data online and learn how to protect your privacy.</h2> <!-- Aligned to the left -->
-    <button class="start-button" onclick="scrollToAssessment()">Get Started</button> <!-- Added button -->
+  <div class="front-page" style="text-align: left;">
+    <div style="height: 30px;"></div>
+    <h1>Welcome to DataED</h1>
+    <h2 style="font-size: 1em; margin-top: 0px;">Analyze the risks of sharing your personal data online and learn how to protect your privacy.</h2>
+    <button class="start-button" onclick="scrollToAssessment()">Get Started</button>
   </div>
 
-  <div style="height: 50px;"></div> <!-- Reduced height -->
+  <div style="height: 100px;"></div> 
 
-  <div class="summary-box fly-in"> <!-- Added fly-in class -->
+  <div class="summary-box fly-in"> 
     <h2>About This Tool</h2>
     <p>In today's digital world, personal data is constantly collected and stored by websites, apps, and third parties. Many people unknowingly expose sensitive information, increasing the risk of identity theft, fraud, or data breaches. This tool helps you become more aware of your data privacy risks and take steps to protect your personal information.
 
       This tool helps you understand the risks associated with sharing personal data online. By selecting the types of data you have shared, our system evaluates your exposure level and provides a risk assessment based on vulnerability and data significance.
+      <p> Why Use This Website?</p>
+      <p>✔ Quick & Easy → Just select what data you share and get instant results.  </p>
+      <p>✔ Personalized Results → Your risk level and recommendations are tailored to your selections.  </p>
+      <p>✔ Privacy Awareness → Helps you understand what data is at risk and how to protect yourself.  </p>
+
       </p>
+
   </div>
 
-  <div style="height: 50px;"></div> <!-- Added space -->
+  <div style="height: 50px;"></div>
+
+  <div class="how-it-works-box fly-in">
+    <h2>How it Works</h2>
+    <p>This tool evaluates the risks associated with sharing personal data online. By selecting the types of data you have shared, our system calculates your exposure level and provides a risk assessment based on vulnerability and data significance. Follow the recommendations to protect your personal information and reduce your risk.</p>
+    <h3>How It Works</h3>
+    <ol>
+      <li>Select the types of personal data you have shared by checking the boxes (e.g., Name, Email, Location, Bank Account).</li>
+      <li>Click the "Analyze Risk" button to calculate your data risk level.</li>
+      <li>View your risk assessment to see:
+        <ul>
+          <li>Your overall risk level (Low, Medium, High).</li>
+          <li>A detailed explanation of your risk.</li>
+          <li>Recommendations to improve your privacy and security.</li>
+        </ul>
+      </li>
+    </ol>
+    <h3>How the Calculations Work</h3>
+    <p>Each type of personal data has a risk score, which is calculated using:</p>
+    <p><code>Risk Score = Vulnerability × Significance</code></p>
+    <p><b>Vulnerability (1-5):</b> How likely this data is to be exposed (e.g., Name is commonly shared, while a Bank Account is rarely exposed).</p>
+    <p><b>Significance (1-5):</b> How sensitive the data is (e.g., Name has low significance, while Biometric Data is highly sensitive).</p>
+    <p>Your total risk score is the sum of all selected data types:</p>
+    <ul>
+      <li>1 - 14 → Low Risk</li>
+      <li>15 - 24 → Medium Risk</li>
+      <li>25+ → High Risk</li>
+    </ul>
+    <h3>How Your Final Assessment Is Determined</h3>
+    <p>In addition to your total score, the website analyzes the type of data you shared to give you a more accurate risk explanation:</p>
+    <ul>
+      <li>If you share only Identity data (e.g., Name, Email, Phone) → You get a low-risk message because this data is commonly shared.</li>
+      <li>If you share Location data (e.g., Address, IP) → The system warns you about tracking risks.</li>
+      <li>If you share Financial or Biometric data (e.g., Bank Account, Fingerprint) → The system alerts you about serious security risks.</li>
+    </ul>
+  </div>
+
+  <div style="height: 50px;"></div>
 
   <div class="container">
-    <div class="assessment-box fly-in" id="assessment-section"> <!-- Added id -->
+    <div class="assessment-box fly-in" id="assessment-section">
         <h1>Personal Data Risk Assessment</h1>
     </div>
     <div class="data-input fly-in">
         <div class="input-box">
             <h2>Select the Data You Provide</h2>
             <form id="data-form">
-                <div class="input-box"><label><input type="checkbox" value="1" data-sensitivity="low"> Name</label></div>
-                <div class="input-box"><label><input type="checkbox" value="2" data-sensitivity="medium"> Number</label></div>
-                <div class="input-box"><label><input type="checkbox" value="3" data-sensitivity="high"> Address</label></div>
-                <div class="input-box"><label><input type="checkbox" value="3" data-sensitivity="high"> Email</label></div>
-                <div class="input-box"><label><input type="checkbox" value="4" data-sensitivity="high"> Location</label></div>
-                <div class="input-box"><label><input type="checkbox" value="2" data-sensitivity="medium"> Birthdate</label></div>
-                <div class="button-box">
-                    <button type="button" id="calculate-risk">Analyze Risk</button>
-                </div>
-            </form>
+  <div class="input-box"><label><input type="checkbox" value="5"> <b>Name</b> – Your full or partial name, often used for identification in accounts and public records.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="8"> <b>Email Address</b> – Used for communication but also a target for spam, phishing, and hacking attempts.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="16"> <b>Location</b> – Your real-time or saved address, GPS data, or check-ins that reveal where you are.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="10"> <b>Telephone/Phone Number</b> – A direct contact point that can be used for spam, scams, and identity fraud.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="12"> <b>Photos</b> – Personal images that can be used for facial recognition, deepfakes, or unauthorized sharing.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="12"> <b>IP Address</b> – A unique identifier assigned to your internet connection, revealing location and online activity.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="10"> <b>Bank Account</b> – Financial details that, if leaked, can lead to fraud, unauthorized transactions, or identity theft.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="10"> <b>Microphone</b> – Access to your device’s microphone, which can be misused for eavesdropping or recording without consent.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="5"> <b>Signature</b> – A handwritten or digital signature used for legal documents, transactions, and identity verification.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="10"> <b>Biometric Data</b> – Fingerprints, Face ID, or iris scans, which are unique and cannot be changed once stolen.</label></div>
+  <div class="button-box">
+    <button type="button" id="calculate-risk">Analyze Risk</button>
+  </div>
+</form>
         </div>
     </div>
     <div class="risk-output fly-in">
@@ -202,24 +288,11 @@
     </div>
   </div> 
 
-  <div class="carousel-container fly-in" style="background-color: #333; color: #fff;"> <!-- Added fly-in class -->
+  <div class="carousel-container fly-in" style="background-color: #333; color: #fff;">
     <div class="carousel-box">
         <div class="carousel-content">
             <div class="carousel-item active">
-                <p>The importance of data in the 21st century is often overlooked. The Data Brokering
-                  Industry or Data brokers collect and gather many types of personal data to sell to third
-                  parties often without the individuals' consent. Data broker companies like Acxiom and
-                  Equifax have collected a large database full of personal data and the industry as a whole is
-                  estimated to be worth USD 471.25 Billion by 2032. Beauvisage et al. (2020). Governments
-                  worldwide have increasingly sought access to personal data for various administrative,
-                  regulatory, and security purposes. F. Cate et al. (2012). With the expansion of digital space,
-                  the government has taken more importance on individuals' activities and personal data to
-                  improve and develop a better administration and security capabilities. Personal data is
-                  essential in academic research as well, particularly in fields like biomedical research, where
-                  data from millions worldwide is analyzed to improve health outcomes. The digitalization of
-                  health data, aided by social media and devices like smartwatches, has increased the scope
-                  of research but also intensified concerns about privacy and secondary data use. Parimi et
-                  al. (2023).</p>
+                <p>place holder teaasdaisgybj recommendation awidaowd.</p>
             </div>
             <div class="carousel-item">
                 <p>references awdaskdi
@@ -234,10 +307,10 @@
         <button class="carousel-button left" onclick="prevCarousel()">&#10094;</button>
         <button class="carousel-button right" onclick="nextCarousel()">&#10095;</button>
     </div>
-    <div style="height: 50px;"></div> <!-- Added space inside the carousel box -->
+    <div style="height: 50px;"></div>
   </div>
 
-  <div style="height: 50px;"></div> <!-- Added space at the bottom -->
+  <div style="height: 50px;"></div>
 
   <footer class="footer">
     <div>
@@ -291,7 +364,17 @@
     }
 
     function scrollToAssessment() {
-      document.getElementById('assessment-section').scrollIntoView({ behavior: 'smooth' });
+      const assessmentSection = document.getElementById('assessment-section');
+      const offset = -90;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = assessmentSection.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition + offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
 
     window.addEventListener('scroll', handleScroll);
