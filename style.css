@@ -254,17 +254,21 @@ button:hover {
 .carousel-box {
     position: relative;
     overflow: hidden;
+    height: 300px; /* Set a fixed height */
 }
 
 .carousel-content {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .carousel-item {
     min-width: 100%;
     box-sizing: border-box;
-    display: none;
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling within each item */
+    max-height: 300px; /* Ensure content fits within the fixed height */
 }
 
 .carousel-item.active {
