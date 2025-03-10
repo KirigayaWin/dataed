@@ -127,19 +127,6 @@ button:hover {
     font-size: 1.1em; 
 }
 
-.loading-overlay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    display: none; /* Initially hidden */
-    z-index: 1000; /* Ensure it is above other elements */
-}
-
 .uh-header {
     text-align: center;
     font-size: 1.5em;
