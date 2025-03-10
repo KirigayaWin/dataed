@@ -9,6 +9,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
   <link rel="icon" href="icon.png" type="image/png">
   <style>
+    .loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  z-index: 9999;
+  display: none; /* Hidden by default */
+}
+
     body {
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
@@ -179,6 +196,7 @@
   </style>
 </head>
 <body>
+  <div id="loading" class="loading-overlay">Analyzing Risk...</div>
   <div class="uh-header sticky-header" style="padding: 1px 0;">
     <div class="header-left" style="padding-left: 10px;">DataED</div>
     <div class="header-center">ERCIHS</div>
@@ -234,9 +252,9 @@
     <p><b>Significance (1-5):</b> How sensitive the data is (e.g., Name has low significance, while Biometric Data is highly sensitive).</p>
     <p>Your total risk score is the sum of all selected data types:</p>
     <ul>
-      <li>1 - 14 → Low Risk</li>
-      <li>15 - 24 → Medium Risk</li>
-      <li>25+ → High Risk</li>
+      <li>1 - 50 → Low Risk</li>
+      <li>51 - 90 → Medium Risk</li>
+      <li>90+ → High Risk</li>
     </ul>
     <h3>How Your Final Assessment Is Determined</h3>
     <p>In addition to your total score, the website analyzes the type of data you shared to give you a more accurate risk explanation:</p>
@@ -258,15 +276,15 @@
             <h2>Select the Data You Provide</h2>
             <form id="data-form">
   <div class="input-box"><label><input type="checkbox" value="5"> <b>Name</b> – Your full or partial name, often used for identification in accounts and public records.</label></div>
-  <div class="input-box"><label><input type="checkbox" value="8"> <b>Email Address</b> – Used for communication but also a target for spam, phishing, and hacking attempts.</label></div>
-  <div class="input-box"><label><input type="checkbox" value="16"> <b>Location</b> – Your real-time or saved address, GPS data, or check-ins that reveal where you are.</label></div>
-  <div class="input-box"><label><input type="checkbox" value="10"> <b>Telephone/Phone Number</b> – A direct contact point that can be used for spam, scams, and identity fraud.</label></div>
-  <div class="input-box"><label><input type="checkbox" value="12"> <b>Photos</b> – Personal images that can be used for facial recognition, deepfakes, or unauthorized sharing.</label></div>
-  <div class="input-box"><label><input type="checkbox" value="12"> <b>IP Address</b> – A unique identifier assigned to your internet connection, revealing location and online activity.</label></div>
-  <div class="input-box"><label><input type="checkbox" value="10"> <b>Bank Account</b> – Financial details that, if leaked, can lead to fraud, unauthorized transactions, or identity theft.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="10"> <b>Email Address</b> – Used for communication but also a target for spam, phishing, and hacking attempts.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="25"> <b>Location</b> – Your real-time or saved address, GPS data, or check-ins that reveal where you are.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="20"> <b>Telephone/Phone Number</b> – A direct contact point that can be used for spam, scams, and identity fraud.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="15"> <b>Photos</b> – Personal images that can be used for facial recognition, deepfakes, or unauthorized sharing.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="20"> <b>IP Address</b> – A unique identifier assigned to your internet connection, revealing location and online activity.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="25"> <b>Bank Account</b> – Financial details that, if leaked, can lead to fraud, unauthorized transactions, or identity theft.</label></div>
   <div class="input-box"><label><input type="checkbox" value="10"> <b>Microphone</b> – Access to your device’s microphone, which can be misused for eavesdropping or recording without consent.</label></div>
-  <div class="input-box"><label><input type="checkbox" value="5"> <b>Signature</b> – A handwritten or digital signature used for legal documents, transactions, and identity verification.</label></div>
-  <div class="input-box"><label><input type="checkbox" value="10"> <b>Biometric Data</b> – Fingerprints, Face ID, or iris scans, which are unique and cannot be changed once stolen.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="15"> <b>Signature</b> – A handwritten or digital signature used for legal documents, transactions, and identity verification.</label></div>
+  <div class="input-box"><label><input type="checkbox" value="25"> <b>Biometric Data</b> – Fingerprints, Face ID, or iris scans, which are unique and cannot be changed once stolen.</label></div>
   <div class="button-box">
     <button type="button" id="calculate-risk">Analyze Risk</button>
   </div>
@@ -281,12 +299,6 @@
             <button id="more-info-assessment" onclick="toggleMoreInfo('assessment')">More Info</button> <!-- Updated More Info button for assessment -->
             <p id="recommendations">Recommendations: <span></span></p>
             <button id="more-info-recommendations" onclick="toggleMoreInfo('recommendations')">More Info</button> <!-- Updated More Info button for recommendations -->
-            <div class="loading-overlay" id="loading-overlay">
-                <p>Analyzing...</p>
-                <div class="loading-bar">
-                    <div class="loading-progress" id="loading-progress"></div>
-                </div>
-            </div>
         </div>
     </div>
   </div> 
