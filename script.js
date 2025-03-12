@@ -206,4 +206,3 @@ function toggleMoreInfo(section) {
         buttonElement.innerHTML = "More Info";
     }
 }
-
