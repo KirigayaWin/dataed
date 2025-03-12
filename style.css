@@ -232,7 +232,8 @@ button:hover {
 
 .carousel-container {
     max-width: 800px;
-    margin: 2px auto;
+    min-height: 500px;
+    margin: 50px auto 100px auto; /* Add bottom margin for space */
     background: rgba(68, 68, 68, 0.75); 
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -240,8 +241,9 @@ button:hover {
 
 .carousel-box {
     position: relative;
-    overflow: hidden;
-    height: 300px; /* Set a fixed height */
+    overflow: visible; /* Allow content to overflow */
+    min-height: 800; /* Set a minimum height */
+    padding: 20px; /* Add padding for better spacing */
 }
 
 .carousel-content {
@@ -254,8 +256,8 @@ button:hover {
     min-width: 100%;
     box-sizing: border-box;
     padding: 20px;
-    overflow-y: auto; /* Enable vertical scrolling within each item */
-    max-height: 300px; /* Ensure content fits within the fixed height */
+    overflow-y: visible; /* Enable vertical scrolling within each item */
+    height: visible; /* Allow height to adjust based on content */
 }
 
 .carousel-item.active {
@@ -279,6 +281,27 @@ button:hover {
 
 .carousel-button.right {
     right: 10px;
+}
+
+.carousel-pagination {
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-pagination button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.carousel-pagination button.active {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 @media (max-width: 768px) {
