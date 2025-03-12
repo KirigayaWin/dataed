@@ -53,7 +53,7 @@
       position: relative;
       width: 80%;
       margin: auto;
-      overflow: hidden;
+      overflow: visible;
       height: 300px;
       padding: 0;
     }
@@ -193,13 +193,77 @@
       overflow-y: auto;
       font-size: 1.2em;
     }
+    .carousel-page {
+    display: none;
+  }
+  .carousel-page.active {
+    display: block;
+  }
+  .carousel-pagination {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .carousel-pagination button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin: 0 5px;
+  }
+  .carousel-pagination button.active {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .carousel-box {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    padding: 0;
+  }
+  .carousel-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .carousel-page {
+    padding: 20px;
+    background-color: rgba(68, 68, 68, 0.75);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  .carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .carousel-button.left {
+    left: 10px;
+  }
+  .carousel-button.right {
+    right: 10px;
+  }
   </style>
 </head>
-<body>
+<body></body>
   <div id="loading" class="loading-overlay">Analyzing Risk...</div>
   <div class="uh-header sticky-header" style="padding: 1px 0;">
     <div class="header-left" style="padding-left: 10px;">DataED</div>
-    <div class="header-center">ERCIHS</div>
+    <div class="header-center">
+      <img src="images.png" alt="ERCIHS Icon" style="height: 30px; vertical-align: middle; margin-right: 10px;">
+      ERCIHS
+    </div>
     <div class="header-right">
       <a href="document.pdf" class="view-document">Download Document</a>
     </div>
@@ -304,43 +368,50 @@
   </div> 
 
   <div class="carousel-container fly-in" style="background-color: #333; color: #fff;">
-    <div class="carousel-box">
-        <div class="carousel-content">
-            <div class="carousel-item active">
-                <p> Reference 1: Privacy and Personal Data Protection</p>
-                <p> Hoven, J. (2019). Information Technology, Privacy, and the Protection of Personal Data.</p>
-                <p> Full Text: <a href="https://www.researchgate.net/publication/254906455_Information_Technology_Privacy_and_the_Protection_of_Personal_Data" target="_blank">https://www.researchgate.net/publication/254906455_Information_Technology_Privacy_and_the_Protection_of_Personal_Data</a></p>
-                <p> Summary: This study explores how information technology and data collection have increased privacy risks worldwide. It discusses laws, digital security measures, and ethical considerations in preventing data misuse. Hoven highlights how surveillance systems, tracking tools, and data exploitation have become prevalent concerns in healthcare, law enforcement, and marketing. He emphasizes the need for stronger legal frameworks, cryptographic protection, and personal awareness to safeguard data from unauthorized access.</p>
-            </div>
-            <div class="carousel-item">
-                <p> Reference 2: The European Data Protection Regulation</p>
-                <p> Purtova, N. (2015). The Proposed EU Data Protection Regulation: A Missed Opportunity?</p>
-                <p> Full Text: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2346693" target="_blank">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2346693</a></p>
-                <p> Summary: Purtova critiques the European Union’s 2015 data protection reform, arguing that it failed to reinforce individuals’ rights against large-scale data collection by corporations and governments. The study discusses how the regulation was a missed opportunity to challenge data monopolies and ensure stronger user consent measures. The paper also highlights how businesses continue to manipulate legal loopholes to collect personal data for advertising and tracking.</p>
-            </div>
-            <div class="carousel-item">
-                <p> Reference 3: Privacy Risk Assessment & Scoring</p>
-                <p> Agarwal, Y. (2016). Developing a Structured Metric to Measure Privacy Risk in Privacy Impact Assessments.</p>
-                <p> Full Text: <a href="https://www.researchgate.net/publication/304995299_Developing_a_Structured_Metric_to_Measure_Privacy_Risk_in_Privacy_Impact_Assessments" target="_blank">https://www.researchgate.net/publication/304995299_Developing_a_Structured_Metric_to_Measure_Privacy_Risk_in_Privacy_Impact_Assessments</a></p>
-                <p> Summary: Agarwal introduces a three-step methodology for evaluating privacy risks in IT systems. The study proposes a scoring system that organizations can use to measure privacy risks associated with data collection, storage, and sharing. This method helps businesses and researchers compare risks over time and develop strategies to enhance privacy impact assessments (PIAs).</p>
-            </div>
-            <div class="carousel-item">
-                <p> Reference 4: Emerging Threats in Digital Privacy</p>
-                <p> Arshad, S. & Asghar, M. (2024). Quantifying Privacy Risks in an Interconnected World.</p>
-                <p> Full Text: <a href="https://ieeexplore.ieee.org/abstract/document/8102366" target="_blank">https://ieeexplore.ieee.org/abstract/document/8102366</a></p>
-                <p> Summary: Arshad and Asghar explore modern privacy challenges, focusing on the rapid expansion of artificial intelligence, machine learning, and IoT (Internet of Things). The study discusses how user behavior is increasingly tracked through algorithms, surveillance tools, and real-time data processing. It also highlights cybersecurity threats, such as unauthorized recordings, online behavioral profiling, and AI-based privacy breaches.</p>
-            </div>
-            <div class="carousel-item">
-                <p> Reference 5: Data Brokering & Market Trends</p>
-                <p> Beauvisage, T., et al. (2020). The Growth and Influence of Data Brokers in the Information Industry.</p>
-                <p> Full Text: <a href="https://doi.org/10.7551/mitpress/12075.003.0005" target="_blank">https://doi.org/10.7551/mitpress/12075.003.0005</a></p>
-                <p> Summary: This study examines the business models of data brokers, companies that collect, analyze, and sell personal data to third parties. Beauvisage discusses how companies like Acxiom and Equifax have built extensive consumer databases and the ethical concerns surrounding their practices. The paper highlights the economic value of personal data and the risks of individuals unknowingly sharing information that is later used for marketing, surveillance, and profiling.</p>
-            </div>
-        </div>
-        <button class="carousel-button left" onclick="prevCarousel()">&#10094;</button>
-        <button class="carousel-button right" onclick="nextCarousel()">&#10095;</button>
+  <div class="carousel-box">
+    <div class="carousel-content">
+      <div class="carousel-page active">
+        <p> Reference 1: Privacy and Personal Data Protection</p>
+        <p> Hoven, J. (2019). Information Technology, Privacy, and the Protection of Personal Data.</p>
+        <p> Full Text: <a href="https://www.researchgate.net/publication/254906455_Information_Technology_Privacy_and_the_Protection_of_Personal_Data" target="_blank">http://dx.doi.org/10.1017/CBO9780511498725.016</a></p>
+        <p> Summary: This study explores how information technology and data collection have increased privacy risks worldwide. It discusses laws, digital security measures, and ethical considerations in preventing data misuse. Hoven highlights how surveillance systems, tracking tools, and data exploitation have become prevalent concerns in healthcare, law enforcement, and marketing. He emphasizes the need for stronger legal frameworks, cryptographic protection, and personal awareness to safeguard data from unauthorized access.</p>
+      </div>
+      <div class="carousel-page">
+        <p> Reference 2: The European Data Protection Regulation</p>
+        <p> Purtova, N. (2015). The Proposed EU Data Protection Regulation: A Missed Opportunity?</p>
+        <p> Full Text: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2346693" target="_blank">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2346693</a></p>
+        <p> Summary: Purtova critiques the European Union’s 2015 data protection reform, arguing that it failed to reinforce individuals’ rights against large-scale data collection by corporations and governments. The study discusses how the regulation was a missed opportunity to challenge data monopolies and ensure stronger user consent measures. The paper also highlights how businesses continue to manipulate legal loopholes to collect personal data for advertising and tracking.</p>
+      </div>
+      <div class="carousel-page">
+        <p> Reference 3: Privacy Risk Assessment & Scoring</p>
+        <p> Agarwal, Y. (2016). Developing a Structured Metric to Measure Privacy Risk in Privacy Impact Assessments.</p>
+        <p> Full Text: <a href="https://www.researchgate.net/publication/304995299_Developing_a_Structured_Metric_to_Measure_Privacy_Risk_in_Privacy_Impact_Assessments" target="_blank">http://dx.doi.org/10.1007/978-3-319-41763-9_10</a></p>
+        <p> Summary: Agarwal introduces a three-step methodology for evaluating privacy risks in IT systems. The study proposes a scoring system that organizations can use to measure privacy risks associated with data collection, storage, and sharing. This method helps businesses and researchers compare risks over time and develop strategies to enhance privacy impact assessments (PIAs).</p>
+      </div>
+      <div class="carousel-page">
+        <p> Reference 4: Emerging Threats in Digital Privacy</p>
+        <p> Arshad, S. & Asghar, M. (2024). Quantifying Privacy Risks in an Interconnected World.</p>
+        <p> Full Text: <a href="https://ieeexplore.ieee.org/abstract/document/8102366" target="_blank">https://ieeexplore.ieee.org/abstract/document/8102366</a></p>
+        <p> Summary: Arshad and Asghar explore modern privacy challenges, focusing on the rapid expansion of artificial intelligence, machine learning, and IoT (Internet of Things). The study discusses how user behavior is increasingly tracked through algorithms, surveillance tools, and real-time data processing. It also highlights cybersecurity threats, such as unauthorized recordings, online behavioral profiling, and AI-based privacy breaches.</p>
+      </div>
+      <div class="carousel-page">
+        <p> Reference 5: Data Brokering & Market Trends</p>
+        <p> Beauvisage, T., et al. (2020). The Growth and Influence of Data Brokers in the Information Industry.</p>
+        <p> Full Text: <a href="https://doi.org/10.7551/mitpress/12075.003.0005" target="_blank">https://doi.org/10.7551/mitpress/12075.003.0005</a></p>
+        <p> Summary: This study examines the business models of data brokers, companies that collect, analyze, and sell personal data to third parties. Beauvisage discusses how companies like Acxiom and Equifax have built extensive consumer databases and the ethical concerns surrounding their practices. The paper highlights the economic value of personal data and the risks of individuals unknowingly sharing information that is later used for marketing, surveillance, and profiling.</p>
+      </div>
     </div>
-    <div style="height: 50px;"></div>
+    <button class="carousel-button left" onclick="prevCarouselPage()">&#10094;</button>
+    <button class="carousel-button right" onclick="nextCarouselPage()">&#10095;</button>
+    <div class="carousel-pagination">
+      <button onclick="showCarouselPage(0)" class="active">1</button>
+      <button onclick="showCarouselPage(1)">2</button>
+      <button onclick="showCarouselPage(2)">3</button>
+      <button onclick="showCarouselPage(3)">4</button>
+      <button onclick="showCarouselPage(4)">5</button>
+    </div>
+  </div>
+  <div style="height: 50px;"></div>
 </div>
 
   <div style="height: 50px;"></div>
@@ -439,6 +510,31 @@
     const carouselContent = document.querySelector('.carousel-content');
     carouselContent.addEventListener('touchstart', handleTouchStart, false);
     carouselContent.addEventListener('touchmove', handleTouchMove, false);
+    let currentCarouselPage = 0;
+  const carouselPages = document.querySelectorAll('.carousel-page');
+  const paginationButtons = document.querySelectorAll('.carousel-pagination button');
+
+  function showCarouselPage(index) {
+    carouselPages.forEach((page, i) => {
+      page.classList.toggle('active', i === index);
+    });
+    paginationButtons.forEach((button, i) => {
+      button.classList.toggle('active', i === index);
+    });
+    currentCarouselPage = index;
+  }
+
+  function prevCarouselPage() {
+    currentCarouselPage = (currentCarouselPage > 0) ? currentCarouselPage - 1 : carouselPages.length - 1;
+    showCarouselPage(currentCarouselPage);
+  }
+
+  function nextCarouselPage() {
+    currentCarouselPage = (currentCarouselPage < carouselPages.length - 1) ? currentCarouselPage + 1 : 0;
+    showCarouselPage(currentCarouselPage);
+  }
+
+  showCarouselPage(currentCarouselPage);
   </script>
 </body>
 </html>
